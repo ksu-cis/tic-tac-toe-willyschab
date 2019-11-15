@@ -23,7 +23,6 @@ namespace TicTacToe.Pages
             int y = int.Parse(parts[2]);
             State[x, y] = turn;
             }
-
         }
     }
 }

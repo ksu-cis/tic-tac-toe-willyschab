@@ -1,58 +1,42 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    margin: 0;
-    padding: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-form {
-    display: block;
-    width: 302px;
-    margin: 0 auto;
-    padding: 0;
-    overflow: hidden;
+
+#board {
+    width: 400px;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
 }
 
-#grid {
-	display: grid;
-	grid-template-columns: 100px 100px 100px;
-	grid-template-rows: 1fr 1fr 1fr;
+#board > .square {
+    border: 1px solid gray;
+    width: 50px;
+    height: 50px;
 }
 
-.square{
-	border: 1px solid black;
-	width: 100px;
-	height: 100px;
-    font-size: 60px;
-    text-align: center;
-	margin: 0;
+.red {
+    background-color: red;
 }
 
-.board{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 302px;
+.black{
+    background-color: black;
 }
 
-.row{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-}
-
-.board > .row:nth-child(2) {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-.board > .row > .cell:nth-child(2){
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
-
-.cell{
-    width: 100px;
-    height: 100px;
+.checker{
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid gray;
 }

@@ -3,9 +3,34 @@
 
 // Write your Javascript code.
 
-var cells = document.getElementByClassName("cell");
-for (var i = 0; i < cells.length; i++) {
-    cells[i].addEventListener(event => {
-        event.preventDefault()
-    });
+var squares = document.getElementByClassName("square");
+for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener("dragenter", onDragEnter);
+    squares[i].addEventListener("dragleave", onDragLeave);
+    squares[i].addEventListener("dragstart", onDragStart);
+    squares[i].addEventListener("dragend", onDragEnd);
+}
+
+function onDragEnter(event) {
+    if (event.target.children.length > 0) return;
+    if (event.target.classList.contains("checker")) return;
+    if (event.target.classList.contains("red")) return;
+    event.preventDefault();
+    event.target.style.backgroundColor = "yellow";
+}
+
+function onDragStart(event) {
+    dragging = {
+        x: event.target.data-x,
+        y: event.target.data-y
+    }
+    console.log(event);
+}
+
+function onDragLeave(event) {
+    event.target.style.backgroundColor = null;
+}
+
+function onDragEnd(event) {
+    console.log(event);
 }
